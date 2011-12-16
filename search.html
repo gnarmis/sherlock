@@ -10,11 +10,29 @@
   <script type="text/javascript">
     $(document).ready(function() {
         /*setTimeout(function() { */document.getElementById('search').focus(); /*}, 200);*/
+        var parseq = function (q) {
+          var result = q;
+          var sp = /\s+/;
+          result.replace(sp,'+');
+          return result;
+          }
         $('#search-form').submit(function() {
-          alert('Handler for .submit() called.');
-          return false;
+          var q = $('input:first').val();
+          chrome.tabs.getSelected(null, function(tab) {
+              builduri(tab.url);
           });
 
+        function builduri(tb) {
+          var ptb = parseUri(tb);
+          var pq = parseq(q);
+          var sq = 'https://www.google.com/#q=' + pq + '+site:' + ptb.host
+          chrome.tabs.create({
+              "url": sq,
+              "selected": false
+            }, null);
+          }
+        return false;
+        });
     });
   </script>
 </head>
@@ -25,3 +43,9 @@
   </form>
 </body>
 </html>
+<!-- Sherlock 0.0.1-->
+<!-- (c) Gursimran Singh <kilotau.com>-->
+<!-- MIT License-->
+<!-- parseUri 1.2.2-->
+<!-- (c) Steven Levithan <stevenlevithan.com>-->
+<!-- MIT License-->

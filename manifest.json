@@ -1,12 +1,23 @@
 {
-  "name": "My First Extension",
-  "version": "1.0",
-  "description": "The first extension that I made.",
+  "name": "Sherlock",
+  "version": "0.1",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "description": "Easy shortcut to specifically google the website in your current tab.",
   "browser_action": {
     "default_icon": "icon.png",
     "popup": "search.html"
   },
   "permissions": [
-    "http://api.flickr.com/"
+    "tabs"
   ]
 }
+// Sherlock 0.0.1
+// (c) Gursimran Singh <kilotau.com>
+// MIT License
+// parseUri 1.2.2
+// (c) Steven Levithan <stevenlevithan.com>
+// MIT License
