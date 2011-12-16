@@ -8,7 +8,7 @@
   },
   "description": "Easy shortcut to specifically google the website in your current tab.",
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon16.png",
     "popup": "search.html"
   },
   "permissions": [
