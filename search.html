@@ -5,14 +5,22 @@
     input#search { width: 80%; height: 100%; }
     input#submit { width: 15%; height: 100%; padding-left: 5px; }
   </style>
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="parseuri.js" type="text/javascript"></script>
   <script type="text/javascript">
-    setTimeout(function() { document.getElementById('search').focus(); }, 200);
+    $(document).ready(function() {
+        /*setTimeout(function() { */document.getElementById('search').focus(); /*}, 200);*/
+        $('#search-form').submit(function() {
+          alert('Handler for .submit() called.');
+          return false;
+          });
+
+    });
   </script>
 </head>
 <body>
   <form id="search-form">
-    <input type="text" name="search" id="search" />
+    <input type="text" name="search" id="search" placeholder="Search this host" />
     <input type="submit" name="submit" value="?" id="submit" />
   </form>
 </body>
